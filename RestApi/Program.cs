@@ -1,3 +1,18 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System.Net;
 
-Console.WriteLine("Hello, World!");
+var server = new HttpListener();
+
+server.Prefixes.Add("http://127.0.0.1:1488/api/"); 
+
+server.Start();
+
+while (true)
+{
+    var context = await server.GetContextAsync();
+    var request = context.Request;
+    
+    Console.WriteLine();
+}
+
+// server.Stop();
+// server.Close();
