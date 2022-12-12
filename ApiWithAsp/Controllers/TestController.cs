@@ -1,6 +1,7 @@
 ﻿using ApiWithAsp.DataBase;
 using ApiWithAsp.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace ApiWithAsp.Controllers;
 
