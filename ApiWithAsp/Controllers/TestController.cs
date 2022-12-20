@@ -7,12 +7,10 @@ namespace ApiWithAsp.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class TestController : ControllerBase
+public class TestController : ControllerBase, ITestService
 {
     private readonly ILogger<TestController> _logger;
     
-    
-
     public TestController(ILogger<TestController> logger)
     {
         _logger = logger;
@@ -36,14 +34,14 @@ public class TestController : ControllerBase
             return null;
         }
     }
-
-    private TestItem Get(long id)
+    [NonAction]
+    public TestItem Get(long id)
     {
         _logger.LogInformation($"Getting user by id: {id}");
         return UserDb.GetUserById(id);
     }
-
-    private TestItem Get(string Name)
+    [NonAction]
+    public TestItem Get(string Name)
     {
         _logger.LogInformation($"Getting user by username: {Name}");
         return UserDb.GetUserByName(Name);
